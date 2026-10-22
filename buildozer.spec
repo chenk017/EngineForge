@@ -24,9 +24,14 @@ version = 0.1
 # (list) Izin aplikasi Android (Penting untuk akses file asset game)
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,MANAGE_EXTERNAL_STORAGE
 
-# (str) Target API Android (Menggunakan API 34 yang stabil dan kompatibel)
+# (str) Target API Android (Stabil di API 34)
 android.api = 34
+
+# (str) Minimum API Android
 android.minapi = 21
+
+# (str) Versi Android NDK (Menggunakan r25b agar tidak error saat kompilasi modul C/Python)
+android.ndk = 25b
 
 # (str) Orientasi layar (portrait, landscape, all)
 orientation = portrait
