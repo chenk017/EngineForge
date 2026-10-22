@@ -3,7 +3,7 @@ name: Build Android APK
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: # Memungkinkan tombol 'Run workflow' manual di tab Actions
+  workflow_dispatch: # Tombol manual di tab Actions GitHub
 
 jobs:
   build:
@@ -37,7 +37,8 @@ jobs:
 
     - name: Build APK with Buildozer
       run: |
-        buildozer -v android debug
+        # Menggunakan 'yes' untuk otomatis menerima lisensi Android SDK yang tertahan
+        yes | buildozer -v android debug || buildozer -v android debug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
