@@ -3,7 +3,7 @@ name: Build Android APK
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: # Tombol manual di tab Actions GitHub
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,9 +22,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y \
-          git zip unzip openjdk-17-jdk autoconf libtool pkg-config \
+          git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config \
           zlib1g-dev libncurses5-dev libncursesw5-dev \
-          cmake libffi-dev libssl-dev lldb wget
+          cmake libffi-dev libssl-dev lldb wget gettext
 
         # Fix libtinfo5 missing package on Ubuntu 24.04 runner
         wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb || wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2_amd64.deb
@@ -37,7 +37,10 @@ jobs:
 
     - name: Build APK with Buildozer
       run: |
-        # Menggunakan 'yes' untuk otomatis menerima lisensi Android SDK yang tertahan
+        # Bersihkan cache build lama agar makro autotools segar kembali
+        buildozer android clean || true
+        
+        # Jalankan build dengan auto-accept lisensi SDK
         yes | buildozer -v android debug || buildozer -v android debug
 
     - name: Upload APK Artifact
