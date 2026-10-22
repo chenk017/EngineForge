@@ -24,8 +24,8 @@ version = 0.1
 # (list) Izin aplikasi Android (Penting untuk akses file asset game)
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,MANAGE_EXTERNAL_STORAGE
 
-# (str) Target API Android
-android.api = 33
+# (str) Target API Android (Menggunakan API 34 yang stabil dan kompatibel)
+android.api = 34
 android.minapi = 21
 
 # (str) Orientasi layar (portrait, landscape, all)
