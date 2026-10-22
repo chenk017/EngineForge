@@ -9,6 +9,9 @@ package.name = unitypyswapper
 # (str) Domain package
 package.domain = org.modder
 
+# (str) Direktori sumber kode (titik berarti direktori saat ini / root)
+source.dir = .
+
 # (str) Berkas sumber kode aplikasi (dipisahkan koma)
 source.include_exts = py,png,jpg,kv,atlas
 
@@ -24,6 +27,9 @@ android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,MANA
 # (str) Target API Android
 android.api = 33
 android.minapi = 21
+
+# (str) Orientasi layar (portrait, landscape, all)
+orientation = portrait
 
 [buildozer]
 log_level = 2
